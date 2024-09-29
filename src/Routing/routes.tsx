@@ -1,7 +1,10 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import StateHook from "../Pages/useState";
+import SideEffectHook from "../Pages/useEffect";
 import Navbar from "../Components/navbar";
 import Sidebar from "../Components/sidebar";
+import ReferenceHook from "../Pages/useRef";
+import ReducerHook from "../Pages/useReducer";
 
 const Layout = () => {
 	return (
@@ -9,8 +12,11 @@ const Layout = () => {
 			<div className="w-[20%] h-screen">
 				<Sidebar />
 			</div>
-			<div className="w-[85%] overflow-y-scroll">
+			<div className="w-full overflow-y-scroll">
 				<Navbar />
+				<div className="pl-[15rem]">
+					<Outlet />
+				</div>
 				<Outlet />
 			</div>
 		</div>
@@ -28,15 +34,15 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/useEffect",
-				element: <h1>EffectHook</h1>,
+				element: <SideEffectHook />,
 			},
 			{
 				path: "/useRef",
-				element: <h1>EffectHook</h1>,
+				element: <ReferenceHook />,
 			},
 			{
 				path: "/useReducer",
-				element: <h1>EffectHook</h1>,
+				element: <ReducerHook />,
 			},
 			{
 				path: "/useMemo",

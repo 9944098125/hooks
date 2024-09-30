@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from "react";
 
 const ReferenceHook = () => {
-	const inputRef = useRef(null);
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		inputRef?.current?.focus();
+	}, []);
 
 	return (
 		<React.Fragment>

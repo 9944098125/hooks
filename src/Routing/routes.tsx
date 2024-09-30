@@ -5,6 +5,13 @@ import Navbar from "../Components/navbar";
 import Sidebar from "../Components/sidebar";
 import ReferenceHook from "../Pages/useRef";
 import ReducerHook from "../Pages/useReducer";
+import LayoutEffectHook from "../Pages/useLayoutEffect";
+import ImperativeHandleHook from "../Pages/useImperativeHandle";
+import ContextHook from "../Pages/useContext";
+import MemoWithUseMemo from "../Pages/useMemo";
+import StatusComponent from "../Pages/useDebugValue";
+import CallbackHook from "../Pages/useCallback";
+import CustomHook from "../Pages/useCustomHook";
 
 const Layout = () => {
 	return (
@@ -46,31 +53,31 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/useMemo",
-				element: <h1>EffectHook</h1>,
+				element: <MemoWithUseMemo />,
 			},
 			{
 				path: "/useLayoutEffect",
-				element: <h1>EffectHook</h1>,
+				element: <LayoutEffectHook />,
 			},
 			{
 				path: "/useImperativeHandle",
-				element: <h1>EffectHook</h1>,
+				element: <ImperativeHandleHook />,
 			},
 			{
 				path: "/useDebugValue",
-				element: <h1>EffectHook</h1>,
+				element: <StatusComponent />,
 			},
 			{
 				path: "/useContext",
-				element: <h1>EffectHook</h1>,
+				element: <ContextHook />,
 			},
 			{
 				path: "/useCallback",
-				element: <h1>EffectHook</h1>,
+				element: <CallbackHook />,
 			},
 			{
 				path: "/useCustomHooks",
-				element: <h1>EffectHook</h1>,
+				element: <CustomHook />,
 			},
 		],
 	},

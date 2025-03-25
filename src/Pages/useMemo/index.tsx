@@ -2,8 +2,8 @@ import React, { useState, useMemo } from "react";
 import UserCard from "./user";
 
 const ExpensiveComputation = (numbers: number[]) => {
+	console.log("Expensive computation running...");
 	return numbers.reduce((acc, curr) => acc + curr, 0);
-	// sum of the array
 };
 
 const MemoWithUseMemo = () => {
@@ -15,9 +15,14 @@ const MemoWithUseMemo = () => {
 
 	const [count, setCount] = useState(0);
 
-	// creating a large array
-	const numbersArray = Array.from({ length: 100000 }, (_, i) => i);
+	// Memoizing numbersArray to prevent recreation
+	const numbersArray = useMemo(
+		() => Array.from({ length: 100000 }, (_, i) => i),
+		[]
+	);
+	console.log("checking render");
 
+	// Memoizing expensive computation
 	const totalSum = useMemo(
 		() => ExpensiveComputation(numbersArray),
 		[numbersArray]
